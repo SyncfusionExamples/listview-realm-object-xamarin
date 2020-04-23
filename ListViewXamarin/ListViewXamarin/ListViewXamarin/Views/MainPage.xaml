@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewXamarin"
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="ListViewXamarin.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:ViewModel />
+    </ContentPage.BindingContext>
+
+    <sync:SfListView x:Name="listView" AutoFitMode="Height" ItemsSource="{Binding BookInfo}" SelectionBackgroundColor="#d3d3d3">
+        <sync:SfListView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="0,12,8,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="1"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Orientation="Vertical" Padding="5,-5,0,0" VerticalOptions="Start" Grid.Row="0">
+                        <Label Text="{Binding BookName}" FontAttributes="Bold" FontSize="16" TextColor="#000000" />
+                        <Label Text="{Binding BookAuthor}" Grid.Row="1" FontSize="14"  Opacity=" 0.67" TextColor="#000000" />
+                        <Label Text="{Binding BookDescription}" Opacity=" 0.54" TextColor="#000000" FontSize="13"/>
+                    </StackLayout>
+                    <BoxView Grid.Row="1" HeightRequest="1" Opacity="0.75" BackgroundColor="#CECECE" />
+                </Grid>
+            </DataTemplate>
+        </sync:SfListView.ItemTemplate>
+    </sync:SfListView>
+</ContentPage>
